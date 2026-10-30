@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export function ReviewsWidget() {
   return (
-    <section className="py-16 bg-muted/30 border-t">
+    <section id="recensioni" className="py-16 bg-muted/30 border-t scroll-mt-32">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Cosa dicono i nostri clienti</h2>

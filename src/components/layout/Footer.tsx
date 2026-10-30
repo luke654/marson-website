@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { offices } from "@/data/offices";
 import { RecruitingBanner } from "../RecruitingBanner";
 
 
 export function Footer() {
+  // In homepage c'è già la sezione "Lavora con noi": evitiamo il doppione
+  const isHome = useLocation().pathname === "/";
+
   return (
     <footer className="bg-primary text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <RecruitingBanner />
+        {!isHome && <RecruitingBanner />}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
@@ -20,7 +23,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-primary-foreground/80 text-sm mt-4 leading-relaxed">
-              Dal 1986 la famiglia Marson è il punto di riferimento immobiliare sul territorio. Oltre 40 anni di esperienza, continuità e rapporto umano al servizio dei vostri progetti di casa.
+              Sei sedi nel territorio legnanese, riunite per te con un unico referente diretto per garantirti un servizio che una sola agenzia non ti potrebbe mai garantire.
             </p>
 
           </div>

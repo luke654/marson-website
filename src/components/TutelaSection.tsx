@@ -23,7 +23,7 @@ export function TutelaSection() {
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">La vostra tutela, da sempre.</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Marson Immobiliare garantisce la massima serietà professionale grazie alla partnership con <strong>Vittoria Assicurazioni</strong>, attiva da oltre 35 anni. In quasi quattro decenni di storia, questa tutela non è mai stata utilizzata: la prova più concreta della precisione e della correttezza con cui la famiglia Marson gestisce ogni singola pratica.
+              Una tutela professionale con <strong>Vittoria Assicurazioni</strong> che in oltre 35 anni non è mai stato necessario utilizzare: un dato concreto sulla cura con cui gestiamo ogni trattativa.
             </p>
           </div>
         </div>

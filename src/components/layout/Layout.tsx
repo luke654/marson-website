@@ -19,7 +19,13 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const [showChatPrompt, setShowChatPrompt] = useState(true);
+  const [showChatPrompt, setShowChatPrompt] = useState(false);
+
+  // Il fumetto della chat compare dopo un po', per non affollare il primo colpo d'occhio
+  useEffect(() => {
+    const id = window.setTimeout(() => setShowChatPrompt(true), 12000);
+    return () => window.clearTimeout(id);
+  }, []);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -91,6 +97,7 @@ export function Layout({ children }: LayoutProps) {
               title="Come possiamo aiutarti?" 
               subtitle="Compila il modulo e ti ricontatteremo subito direttamente su WhatsApp."
               submitText="Invia Richiesta"
+              context="Bolla chat"
             />
           </DialogContent>
         </Dialog>

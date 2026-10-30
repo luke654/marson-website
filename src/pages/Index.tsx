@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Building, ArrowRight, Users, ShieldCheck } from "lucide-react";
+import { MapPin, Phone, Building, ArrowRight, ArrowUp, Users, ShieldCheck, Briefcase } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { offices } from "@/data/offices";
 import { useProperties } from "@/hooks/useProperties";
@@ -8,6 +8,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { ReviewsWidget } from "@/components/ReviewsWidget";
 import { ContactForm } from "@/components/ContactForm";
+import { SoldPropertiesStrip } from "@/components/SoldPropertiesStrip";
+import { ReviewBadge } from "@/components/ReviewBadge";
+import { CandidaturaForm, candidaturaDialogClass } from "@/components/CandidaturaForm";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 
 export default function Index() {
@@ -49,33 +53,37 @@ export default function Index() {
       />
 
       {/* Hero Section */}
-      <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center pt-16 md:pt-0">
-        <div 
+      <section className="relative min-h-[85vh] flex flex-col pt-16 md:pt-0">
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://vibe.filesafe.space/1775806180627333208/attachments/673e36fa-8661-47c6-8f47-53d950cb8d99.webp')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" /> 
-        
-        <div className="relative z-10 container mx-auto px-4 text-center text-white mt-10 md:mt-0">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
-            <ShieldCheck className="h-4 w-4 text-primary-foreground" />
-            <span className="text-sm font-medium tracking-wide">La famiglia Marson al tuo fianco dal 1986</span>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+
+        <div className="relative z-10 container mx-auto px-4 text-center text-white flex-1 flex flex-col items-center justify-center py-8 mt-10 md:mt-0">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 [text-shadow:_0_2px_4px_rgba(0,0,0,0.8)] leading-tight">
-            Agenzia immobiliare a Legnano da oltre 40 anni
+            Vendi il tuo immobile al miglior prezzo di mercato!
           </h1>
-          <p className="text-base sm:text-xl md:text-2xl mb-8 md:mb-10 text-white/90 max-w-4xl mx-auto [text-shadow:_0_1px_3px_rgba(0,0,0,0.8)] font-light leading-relaxed">
-            Da oltre 40 anni la famiglia Marson segue personalmente ogni trattativa con la stessa dedizione e serietà. Una presenza storica e familiare sul territorio, per garantire una presenza e continuità rare nel nostro settore
+          <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-white/90 max-w-4xl mx-auto [text-shadow:_0_1px_3px_rgba(0,0,0,0.8)] font-light leading-relaxed">
+            Ti garantiamo una valutazione gratuita e senza impegno, studiata per valorizzare al massimo il tuo immobile secondo le sue caratteristiche. Se non dovessimo concludere la vendita, non preoccuparti,{" "}
+            <strong className="bg-primary text-white font-bold px-1.5 rounded [text-shadow:none]">lo acquistiamo noi!</strong>
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg px-6 md:px-8 h-12 md:h-14 w-full sm:w-auto">
-              <Link to="/vendi-immobile">Richiedi una valutazione</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary bg-white/10 backdrop-blur-sm text-base md:text-lg px-6 md:px-8 h-12 md:h-14 transition-colors w-full sm:w-auto">
-              <Link to="/vendi-immobile">Scopri come vendere bene</Link>
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg px-6 md:px-8 h-12 md:h-14 w-full sm:w-auto"
+              onClick={() => document.getElementById("valutazione")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Valuta il mio immobile
             </Button>
           </div>
+          <p className="mt-3 text-sm text-white/80 flex items-center gap-1.5">
+            <ShieldCheck className="h-4 w-4" /> Online, gratuita e in soli 2 minuti
+          </p>
+          <ReviewBadge className="mt-5 mx-auto" />
         </div>
+
+        <SoldPropertiesStrip />
       </section>
 
       {/* Trust Bar */}
@@ -128,7 +136,9 @@ export default function Index() {
                 Marson Immobiliare non è solo un'agenzia, è la storia di una famiglia che dal 1986 mette la propria firma su ogni compravendita. Abbiamo scelto di non essere una catena impersonale, ma di restare una realtà autentica dove il rapporto umano, la relazione con il cliente e la continuità sono i valori più preziosi.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Affidarsi a noi significa parlare con persone che conoscono ogni angolo di questo territorio e che vi affiancano con l'esperienza tramandata da oltre 40 anni di attività ininterrotta.
+                Affidarsi a noi significa scegliere un servizio attento, presente e realmente dedicato ai tuoi interessi.
+                Ogni venditore viene seguito con cura e continuità dal nostro team durante tutte le fasi della vendita, con un rapporto diretto, costante e trasparente.
+                Per noi ogni cliente è unico: non sarete mai un semplice numero come per tanti nostri competitor, ma entrerete a far parte del gruppo di persone a cui dedichiamo la nostra massima attenzione e professionalità: i <strong className="text-primary font-bold">NOSTRI VENDITORI</strong>.
               </p>
               <div className="pt-4">
                 <Button asChild variant="outline" size="lg" className="group">
@@ -142,18 +152,17 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Sezione Contatti */}
-      <section className="py-16 md:py-24 bg-primary relative overflow-hidden">
+      {/* Sezione Valutazione */}
+      <section id="valutazione" className="py-16 md:py-24 bg-primary relative overflow-hidden scroll-mt-32">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2 text-white">
               <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                Parliamo del tuo immobile
+                Quanto vale davvero il tuo immobile?
               </h2>
               <p className="text-lg md:text-xl text-white/90 mb-8 font-light leading-relaxed">
-                Conosciamo questo territorio, le sue dinamiche e le persone che lo vivono ogni giorno.
-                Per questo possiamo offrirti un supporto diretto, concreto e costruito sull'esperienza reale.
+                Valuta gratuitamente il tuo immobile in soli due minuti. Inserisci con pochi click le informazioni principali e scopri subito la <strong className="font-bold">NOSTRA</strong> stima!
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -179,12 +188,38 @@ export default function Index() {
               </div>
             </div>
             <div className="md:w-1/2 w-full">
-              <ContactForm 
-                title="Come possiamo aiutarti?"
-                subtitle="Compila il modulo per essere ricontattato da un nostro consulente."
-                context="Homepage Contatti"
+              <ContactForm
+                valuationForm
+                title="Valuta il tuo immobile"
+                subtitle="Compila il modulo per ricevere la nostra stima gratuita e senza impegno."
+                context="Homepage Valutazione"
+                submitText="Valuta il mio immobile"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vendita non soddisfacente */}
+      <section className="py-12 md:py-16 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight">
+              Non sei soddisfatto di come sta andando la vendita del tuo immobile?
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Nessuna proposta d'acquisto ricevuta, pochi aggiornamenti concreti o una valutazione bassa e che ti ha lasciato dubbioso? Richiedi subito la nostra stima e confrontala! Non perdere altro tempo, il cliente giusto è già nel nostro database!
+            </p>
+            <a
+              href="#valutazione"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("valutazione")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+            >
+              Usa il modulo di valutazione qui sopra <ArrowUp className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
@@ -193,6 +228,35 @@ export default function Index() {
 
       {/* Recensioni */}
       <ReviewsWidget />
+
+      {/* Lavora con noi */}
+      <section id="lavora-con-noi" className="scroll-mt-32 py-12 md:py-16 bg-white border-y">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 bg-muted/40 rounded-2xl p-6 md:p-10 border border-border/60">
+            <div className="flex items-start gap-4 text-center md:text-left">
+              <div className="hidden md:flex w-12 h-12 bg-primary/10 rounded-full items-center justify-center shrink-0">
+                <Briefcase className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">Lavora con noi</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Cerchiamo consulenti immobiliari che vogliono fare la differenza.</h2>
+                <p className="text-muted-foreground">Entra nel team Marson: sei sedi, un brand storico e un database di clienti pronti. Il tuo talento merita una squadra all'altezza.</p>
+              </div>
+            </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button size="lg" variant="outline" className="shrink-0 h-12 px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full md:w-auto">
+                  Candidati ora
+                </Button>
+              </DialogTrigger>
+              <DialogContent className={candidaturaDialogClass}>
+                <DialogTitle className="sr-only">Candidatura</DialogTitle>
+                <CandidaturaForm />
+              </DialogContent>
+            </Dialog>
+          </div>
+        </div>
+      </section>
 
       {/* Immobili in evidenza */}
       <section className="py-20 bg-muted/30 border-y">

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { CandidaturaForm, candidaturaDialogClass } from "./CandidaturaForm";
 
 export function RecruitingBanner() {
   return (
@@ -9,9 +10,17 @@ export function RecruitingBanner() {
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Vuoi crescere con noi?</h2>
           <p className="text-primary-foreground/80 text-lg">Entra a far parte della famiglia Marson. Cerchiamo persone appassionate e professionali per ampliare il nostro team.</p>
         </div>
-        <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 whitespace-nowrap h-12 px-8 text-base shadow-md">
-          <Link to="/contattaci">Invia il tuo curriculum</Link>
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 whitespace-nowrap h-12 px-8 text-base shadow-md">
+              Candidati ora
+            </Button>
+          </DialogTrigger>
+          <DialogContent className={candidaturaDialogClass}>
+            <DialogTitle className="sr-only">Candidatura</DialogTitle>
+            <CandidaturaForm />
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );

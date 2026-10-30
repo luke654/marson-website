@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, X, MessageCircle, MapPin, CheckCircle2, ChevronDown } from "lucide-react";
+import { Menu, Phone, X, MessageCircle, ChevronDown, Briefcase, ArrowRight } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { CandidaturaForm, candidaturaDialogClass } from "@/components/CandidaturaForm";
 
 import { offices } from "@/data/offices";
 import { useState, useEffect } from "react";
@@ -18,6 +20,19 @@ interface NavbarProps {
 export function Navbar({ onMobileMenuChange }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === "/";
+  // In homepage il pulsante "Valuta" del menu compare solo dopo l'hero, che ha già la sua CTA
+  const [pastHero, setPastHero] = useState(false);
+
+  useEffect(() => {
+    if (!isHome) return;
+    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.7);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  const showNavCta = !isHome || pastHero;
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -32,25 +47,29 @@ export function Navbar({ onMobileMenuChange }: NavbarProps) {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <>
-      {/* Topbar */}
-      <div className="hidden lg:block bg-primary text-primary-foreground py-2 text-xs">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" /> Dal 1986 sul territorio</span>
-            <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> Più sedi locali</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" /> Esperti in vendita e locazione</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link to="/vendi-immobile" className="font-bold underline underline-offset-2 hover:text-white/80 transition-colors">
-              Richiedi una valutazione
-            </Link>
-          </div>
-        </div>
-      </div>
+    // Barra candidature + menu restano entrambi fissi in alto durante lo scroll
+    <div className="sticky top-0 z-50">
+      {/* Topbar: ricerca consulenti */}
+      <Dialog>
+        <DialogTrigger asChild>
+          <button type="button" className="group block w-full bg-primary text-primary-foreground py-2.5 text-sm md:text-base">
+            <span className="container mx-auto px-4 flex items-center justify-center gap-3">
+              <Briefcase className="hidden sm:block h-4 w-4 shrink-0" />
+              <span><strong className="font-bold">Cerchiamo consulenti immobiliari</strong><span className="hidden sm:inline"> per le nostre 6 sedi</span></span>
+              <span className="inline-flex items-center gap-1 bg-white text-primary font-bold rounded-full px-3 py-1 text-xs md:text-sm shadow-sm group-hover:bg-white/90 transition-colors">
+                Candidati ora <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </span>
+            </span>
+          </button>
+        </DialogTrigger>
+        <DialogContent className={candidaturaDialogClass}>
+          <DialogTitle className="sr-only">Candidatura</DialogTitle>
+          <CandidaturaForm />
+        </DialogContent>
+      </Dialog>
 
       {/* Main Navbar */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
+      <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
@@ -108,8 +127,11 @@ export function Navbar({ onMobileMenuChange }: NavbarProps) {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
-            <Button asChild>
+          <div
+            className={`hidden lg:flex items-center gap-3 shrink-0 transition-opacity duration-300 ${showNavCta ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            aria-hidden={!showNavCta}
+          >
+            <Button asChild tabIndex={showNavCta ? undefined : -1}>
               <Link to="/vendi-immobile">Valuta il tuo immobile</Link>
             </Button>
           </div>
@@ -155,6 +177,6 @@ export function Navbar({ onMobileMenuChange }: NavbarProps) {
           </div>
         )}
       </header>
-    </>
+    </div>
   );
 }
