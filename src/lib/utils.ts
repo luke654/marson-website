@@ -41,31 +41,6 @@ export const trackPageView = () => {
           page_title: document.title
         });
       }
-
-      const trackingPayload = {
-        type: "page_view",
-        timestamp: Date.now(),
-        url: window.location.href,
-        title: document.title,
-        path: window.location.pathname,
-        userAgent: navigator.userAgent,
-        trackingId: "tk_8aa01e08f6644e53b972b2160c5d9120",
-        locationId: "ex5ANvHlbpBQcbqlNsx5",
-        sessionId: crypto.randomUUID(),
-        properties: {
-          deviceType: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "mobile" : "desktop",
-        },
-      };
-
-      fetch("https://backend.leadconnectorhq.com/external-tracking/events", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          version: "2021-07-28",
-        },
-        body: JSON.stringify(trackingPayload),
-        keepalive: true
-      }).catch(() => {});
     }
   } catch (e) {
     console.error("Tracking error:", e);

@@ -74,7 +74,7 @@ export function Navbar({ onMobileMenuChange }: NavbarProps) {
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
             <img 
-              src="https://vibe.filesafe.space/1775806180627333208/attachments/be05420e-9c6d-4154-953f-04427c1c308e.png" 
+              src="/media/be05420e-9c6d-4154-953f-04427c1c308e.png" 
               alt="Marson Immobiliare" 
               className="h-14 w-auto object-contain"
             />

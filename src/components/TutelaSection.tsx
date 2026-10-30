@@ -10,7 +10,7 @@ export function TutelaSection() {
               <div className="absolute inset-0 bg-primary/10 rounded-full scale-150 blur-3xl"></div>
               <div className="w-48 h-48 md:w-56 md:h-56 bg-white rounded-2xl shadow-xl flex items-center justify-center p-6 md:p-8 relative z-10 border border-border/50">
                 <img
-                  src="https://vibe.filesafe.space/1775806180627333208/attachments/232d014c-0b7a-4898-bec5-1e556e3c5ab8.png"
+                  src="/media/232d014c-0b7a-4898-bec5-1e556e3c5ab8.png"
                   alt="Vittoria Assicurazioni"
                   className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all"
                 />

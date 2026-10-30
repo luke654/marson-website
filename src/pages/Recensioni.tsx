@@ -68,7 +68,7 @@ export default function Recensioni({ forcedSede }: RecensioniProps) {
       <div className="w-full max-w-lg text-center space-y-10">
         <div className="flex justify-center mb-8">
           <img 
-            src="https://vibe.filesafe.space/1775806180627333208/attachments/be05420e-9c6d-4154-953f-04427c1c308e.png" 
+            src="/media/be05420e-9c6d-4154-953f-04427c1c308e.png" 
             alt="Marson Immobiliare" 
             className="h-20 w-auto object-contain"
           />

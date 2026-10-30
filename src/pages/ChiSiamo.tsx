@@ -70,7 +70,7 @@ export default function ChiSiamo() {
             <div className="lg:w-1/2 relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://vibe.filesafe.space/1775806180627333208/attachments/4eed188d-0321-4153-a2df-b4a53107553b.png" 
+                  src="/media/4eed188d-0321-4153-a2df-b4a53107553b.png" 
                   alt="Agenzia Marson Immobiliare" 
                   className="w-full h-full object-cover"
                 />

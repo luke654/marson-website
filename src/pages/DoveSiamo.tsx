@@ -21,7 +21,7 @@ export default function DoveSiamo() {
           "department": offices.map(office => ({
             "@type": "RealEstateAgent",
             "name": `Marson Immobiliare ${office.city}`,
-            "image": office.images[0],
+            "image": `https://marson.it${office.images[0]}`,
             "telephone": office.phone,
             "address": {
               "@type": "PostalAddress",

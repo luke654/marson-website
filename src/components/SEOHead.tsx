@@ -17,9 +17,10 @@ export function SEOHead({
   noIndex = false,
   schemaJson,
 }: SEOHeadProps) {
-  const defaultOgImage = "https://vibe.filesafe.space/1775806180627333208/assets/6d0a9c80-241e-4b62-b246-b9679893db2e.png";
-  const image = ogImage || defaultOgImage;
+  const defaultOgImage = "https://marson.it/media/6d0a9c80-241e-4b62-b246-b9679893db2e.png";
   const siteUrl = "https://marson.it";
+  const rawImage = ogImage || defaultOgImage;
+  const image = rawImage.startsWith("http") ? rawImage : `${siteUrl}${rawImage}`;
   const absoluteCanonical = canonical ? (canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`) : undefined;
 
   return (

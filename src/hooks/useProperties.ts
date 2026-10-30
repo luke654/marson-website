@@ -105,7 +105,7 @@ export function useProperties() {
              images = item.immagini || item.images || item.foto;
           }
           
-          const mainImage = images.length > 0 ? images[0] : (item.mainimage || item.image || "https://vibe.filesafe.space/1775806180627333208/assets/378c9ed8-8d28-4819-9543-6905af47500b.png");
+          const mainImage = images.length > 0 ? images[0] : (item.mainimage || item.image || "/media/378c9ed8-8d28-4819-9543-6905af47500b.png");
           
           return {
             id,

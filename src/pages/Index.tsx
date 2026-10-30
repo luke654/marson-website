@@ -28,7 +28,7 @@ export default function Index() {
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           "name": "Marson Immobiliare",
-          "image": "https://vibe.filesafe.space/1775806180627333208/attachments/673e36fa-8661-47c6-8f47-53d950cb8d99.webp",
+          "image": "https://marson.it/media/673e36fa-8661-47c6-8f47-53d950cb8d99.webp",
           "@id": "https://marson.it",
           "url": "https://marson.it",
           "telephone": "+393351333080",
@@ -42,7 +42,7 @@ export default function Index() {
           "department": offices.map(office => ({
             "@type": "RealEstateAgent",
             "name": `Marson Immobiliare ${office.city}`,
-            "image": office.images[0],
+            "image": `https://marson.it${office.images[0]}`,
             "telephone": office.phone,
             "address": {
               "@type": "PostalAddress",
@@ -56,7 +56,7 @@ export default function Index() {
       <section className="relative min-h-[85vh] flex flex-col pt-16 md:pt-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://vibe.filesafe.space/1775806180627333208/attachments/673e36fa-8661-47c6-8f47-53d950cb8d99.webp')" }}
+          style={{ backgroundImage: "url('/media/673e36fa-8661-47c6-8f47-53d950cb8d99.webp')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
 
@@ -117,7 +117,7 @@ export default function Index() {
             <div className="lg:w-1/2 relative w-full">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative z-10">
                 <img 
-                  src="https://vibe.filesafe.space/1775806180627333208/attachments/f744fb91-f248-4ee7-bdac-e1283b27a882.png" 
+                  src="/media/f744fb91-f248-4ee7-bdac-e1283b27a882.png" 
                   alt="Vetrina Marson Immobiliare" 
                   className="w-full h-full object-cover"
                 />

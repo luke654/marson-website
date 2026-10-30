@@ -64,7 +64,7 @@ export function Layout({ children }: LayoutProps) {
               }}
             >
               <img 
-                src="https://vibe.filesafe.space/1775806180627333208/attachments/be05420e-9c6d-4154-953f-04427c1c308e.png" 
+                src="/media/be05420e-9c6d-4154-953f-04427c1c308e.png" 
                 alt="Marson Immobiliare" 
                 className="w-12 h-12 rounded-full object-contain p-1 border-2 border-primary/10 bg-white"
               />

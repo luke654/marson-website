@@ -36,7 +36,7 @@ export default function DettaglioSede() {
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           "name": `Marson Immobiliare ${office.city}`,
-          "image": office.images[0],
+          "image": `https://marson.it${office.images[0]}`,
           "@id": `https://marson.it/sede/${office.slug}`,
           "url": `https://marson.it/sede/${office.slug}`,
           "telephone": office.phone,
