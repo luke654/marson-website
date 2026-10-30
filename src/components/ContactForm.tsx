@@ -272,7 +272,7 @@ export function ContactForm({
                     <div className="space-y-2">
                       <label className="text-sm md:text-base font-medium">È ristrutturato?</label>
                       <OptionChips
-                        options={[["si", "Sì"], ["parzialmente", "In parte"], ["no", "No"]]}
+                        options={[["Sì", "Sì"], ["In parte", "In parte"], ["No", "No"]]}
                         value={formData.ristrutturato}
                         onChange={(v) => setFormData({...formData, ristrutturato: v})}
                       />
@@ -284,20 +284,20 @@ export function ContactForm({
                           <SelectValue placeholder="Seleziona" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="seminterrato">Seminterrato</SelectItem>
-                          <SelectItem value="terra">Piano terra</SelectItem>
-                          <SelectItem value="1">1°</SelectItem>
-                          <SelectItem value="2">2°</SelectItem>
-                          <SelectItem value="3">3°</SelectItem>
-                          <SelectItem value="4+">4° o superiore</SelectItem>
-                          <SelectItem value="indipendente">Indipendente / villa</SelectItem>
+                          <SelectItem value="Seminterrato">Seminterrato</SelectItem>
+                          <SelectItem value="Piano terra">Piano terra</SelectItem>
+                          <SelectItem value="1°">1°</SelectItem>
+                          <SelectItem value="2°">2°</SelectItem>
+                          <SelectItem value="3°">3°</SelectItem>
+                          <SelectItem value="4° o superiore">4° o superiore</SelectItem>
+                          <SelectItem value="Indipendente / villa">Indipendente / villa</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm md:text-base font-medium">Giardino</label>
                       <OptionChips
-                        options={[["privato", "Privato"], ["condominiale", "Condominiale"], ["no", "No"]]}
+                        options={[["Privato", "Privato"], ["Condominiale", "Condominiale"], ["No", "No"]]}
                         value={formData.giardino}
                         onChange={(v) => setFormData({...formData, giardino: v})}
                       />
@@ -305,7 +305,7 @@ export function ContactForm({
                     <div className="space-y-2">
                       <label className="text-sm md:text-base font-medium">Pertinenze</label>
                       <OptionChips
-                        options={[["box", "Box"], ["cantina", "Cantina"], ["box_cantina", "Box e cantina"], ["posto_auto", "Posto auto"], ["nessuna", "Nessuna"]]}
+                        options={[["Box", "Box"], ["Cantina", "Cantina"], ["Box e cantina", "Box e cantina"], ["Posto auto", "Posto auto"], ["Nessuna", "Nessuna"]]}
                         value={formData.pertinenze}
                         onChange={(v) => setFormData({...formData, pertinenze: v})}
                       />
@@ -335,11 +335,11 @@ export function ContactForm({
                     <label className="text-sm md:text-base font-medium">Quando vorresti vendere? *</label>
                     <div className="grid gap-2">
                       {[
-                        ["il_prima_possibile", "Il prima possibile"],
-                        ["entro_3_mesi", "Entro 3 mesi"],
-                        ["entro_6_mesi", "Entro 6 mesi"],
-                        ["entro_12_mesi", "Entro 12 mesi"],
-                        ["sto_valutando", "Sto solo valutando"],
+                        ["Il prima possibile", "Il prima possibile"],
+                        ["Entro 3 mesi", "Entro 3 mesi"],
+                        ["Entro 6 mesi", "Entro 6 mesi"],
+                        ["Entro 12 mesi", "Entro 12 mesi"],
+                        ["Sto solo valutando", "Sto solo valutando"],
                       ].map(([value, label]) => (
                         <button
                           key={value}
@@ -465,11 +465,11 @@ export function ContactForm({
                       <SelectValue placeholder="Seleziona un'opzione" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="vendere">Voglio Vendere</SelectItem>
-                      <SelectItem value="affittare">Voglio Affittare</SelectItem>
-                      <SelectItem value="comprare">Voglio Comprare</SelectItem>
-                      <SelectItem value="cercare_affitto">Cerco in Affitto</SelectItem>
-                      <SelectItem value="altro">Altro</SelectItem>
+                      <SelectItem value="Voglio Vendere">Voglio Vendere</SelectItem>
+                      <SelectItem value="Voglio Affittare">Voglio Affittare</SelectItem>
+                      <SelectItem value="Voglio Comprare">Voglio Comprare</SelectItem>
+                      <SelectItem value="Cerco in Affitto">Cerco in Affitto</SelectItem>
+                      <SelectItem value="Altro">Altro</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
