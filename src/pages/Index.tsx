@@ -10,6 +10,7 @@ import { ReviewsWidget } from "@/components/ReviewsWidget";
 import { ContactForm } from "@/components/ContactForm";
 import { SoldPropertiesStrip } from "@/components/SoldPropertiesStrip";
 import { ReviewBadge } from "@/components/ReviewBadge";
+import { MutuoBanner } from "@/components/MutuoBanner";
 import { CandidaturaForm, candidaturaDialogClass } from "@/components/CandidaturaForm";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
@@ -228,6 +229,9 @@ export default function Index() {
 
       {/* Recensioni */}
       <ReviewsWidget />
+
+      {/* Consulenza mutuo */}
+      <MutuoBanner />
 
       {/* Lavora con noi */}
       <section id="lavora-con-noi" className="scroll-mt-32 py-12 md:py-16 bg-white border-y">
