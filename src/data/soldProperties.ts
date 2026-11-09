@@ -17,6 +17,8 @@ export interface SoldProperty {
  * Se l'array è vuoto il blocco non viene mostrato.
  */
 export const soldProperties: SoldProperty[] = [
+  // Da Ivan Marson (WhatsApp, 05/11/2026)
+  { id: "deledda-18", image: "/venduti/sanvittore-deledda-18.jpg", comune: "San Vittore Olona", address: "Via Deledda 18", soldDate: "2026-11-05" },
   // Da Ivan Marson (WhatsApp, 28/10/2026), alternando i comuni
   { id: "piero-dell-acqua-2", image: "/venduti/sanvittore-piero-dell-acqua-2.jpg", comune: "San Vittore Olona", address: "Via Piero dell'Acqua 2" },
   { id: "piazza-italia-28", image: "/venduti/nerviano-piazza-italia-28.jpg", comune: "Nerviano", address: "Piazza Italia 28" },
