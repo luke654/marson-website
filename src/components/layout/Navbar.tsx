@@ -1,10 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, X, MessageCircle, ChevronDown, Briefcase, ArrowRight } from "lucide-react";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { CandidaturaForm, candidaturaDialogClass } from "@/components/CandidaturaForm";
+import { Menu, Phone, X, MessageCircle, ChevronDown } from "lucide-react";
 
 import { offices } from "@/data/offices";
+import { TopBar } from "./TopBar";
 import { useState, useEffect } from "react";
 import {
   DropdownMenu,
@@ -49,24 +48,8 @@ export function Navbar({ onMobileMenuChange }: NavbarProps) {
   return (
     // Barra candidature + menu restano entrambi fissi in alto durante lo scroll
     <div className="sticky top-0 z-50">
-      {/* Topbar: ricerca consulenti */}
-      <Dialog>
-        <DialogTrigger asChild>
-          <button type="button" className="group block w-full bg-primary text-primary-foreground py-2.5 text-sm md:text-base">
-            <span className="container mx-auto px-4 flex items-center justify-center gap-3">
-              <Briefcase className="hidden sm:block h-4 w-4 shrink-0" />
-              <span><strong className="font-bold">Cerchiamo consulenti immobiliari</strong><span className="hidden sm:inline"> per le nostre 6 sedi</span></span>
-              <span className="inline-flex items-center gap-1 bg-white text-primary font-bold rounded-full px-3 py-1 text-xs md:text-sm shadow-sm group-hover:bg-white/90 transition-colors">
-                Candidati ora <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </span>
-          </button>
-        </DialogTrigger>
-        <DialogContent className={candidaturaDialogClass}>
-          <DialogTitle className="sr-only">Candidatura</DialogTitle>
-          <CandidaturaForm />
-        </DialogContent>
-      </Dialog>
+      {/* Topbar: messaggi a rotazione (candidature, consulenza mutuo) */}
+      <TopBar />
 
       {/* Main Navbar */}
       <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
