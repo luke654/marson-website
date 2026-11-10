@@ -230,9 +230,6 @@ export default function Index() {
       {/* Recensioni */}
       <ReviewsWidget />
 
-      {/* Consulenza mutuo */}
-      <MutuoBanner />
-
       {/* Lavora con noi */}
       <section id="lavora-con-noi" className="scroll-mt-32 py-12 md:py-16 bg-white border-y">
         <div className="container mx-auto px-4">
@@ -321,6 +318,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Consulenza mutuo: subito dopo gli immobili, per chi sta cercando casa */}
+      <MutuoBanner />
 
       {/* Le Nostre Sedi */}
       <section className="py-16 md:py-24 bg-background">
