@@ -12,7 +12,7 @@ export function ReviewsWidget() {
         </div>
         <iframe
           className="lc_reviews_widget"
-          src="https://reputationhub.site/reputation/widgets/review_widget/ex5ANvHlbpBQcbqlNsx5?widgetId=69e398ebd30412007a2e9480"
+          src="https://crm.fusionsoft.it/widget/recensioni/cmw9yupbs000601pbvm0q2sgw?widgetId=cmw9yupbs000601pbvm0q2sgw"
           frameBorder="0"
           scrolling="no"
           style={{ minWidth: "100%", width: "100%" }}
