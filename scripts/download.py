@@ -41,6 +41,15 @@ def xml_to_dict(element):
     return result
 
 
+# Feed del giorno prima: se un download fallisce si riusa quello, così gli
+# annunci di quel feed non spariscono dal sito per un giorno.
+previous = {}
+try:
+    with open(OUTPUT_JSON, encoding="utf-8") as f:
+        previous = json.load(f).get("feeds", {})
+except (OSError, ValueError):
+    pass
+
 all_data = {}
 errors = []
 
@@ -54,21 +63,29 @@ for url in URLS:
         z.extractall(XML_DIR)
         print(f"  estratti: {z.namelist()}")
 
+        found = {}
         for filename in z.namelist():
             if not filename.lower().endswith(".xml"):
                 continue
             xml_path = os.path.join(XML_DIR, filename)
             tree = ET.parse(xml_path)
             root = tree.getroot()
-            all_data[filename] = {
+            found[filename] = {
                 "source_url": url,
                 "root_tag": root.tag,
                 "data": xml_to_dict(root),
             }
+        if not found:
+            raise ValueError("nessun file XML nello zip")
+        all_data.update(found)
 
     except Exception as e:
         print(f"  ERRORE su {url}: {e}")
         errors.append({"url": url, "error": str(e)})
+        kept = {k: v for k, v in previous.items() if v.get("source_url") == url}
+        if kept:
+            print(f"  tengo il feed precedente: {list(kept)}")
+            all_data.update(kept)
 
 output = {
     "generated_at": datetime.utcnow().isoformat() + "Z",
