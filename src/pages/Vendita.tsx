@@ -78,8 +78,8 @@ export default function Vendita() {
   return (
     <div className="flex flex-col min-h-screen bg-muted/20">
       <SEOHead 
-        title="Immobili in Vendita | Marson Immobiliare" 
-        description="Scopri le nostre migliori proposte immobiliari. Dalla casa dei tuoi sogni all'investimento ideale."
+        title="Case e appartamenti in vendita a Legnano e dintorni | Marson" 
+        description="Case, appartamenti e ville in vendita a Legnano, Canegrate, San Giorgio su Legnano, San Vittore Olona, Busto Garolfo e Villa Cortese. Annunci aggiornati da Marson Immobiliare."
         canonical="/vendita"
       />
       {/* Hero */}

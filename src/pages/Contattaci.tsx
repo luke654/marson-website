@@ -15,7 +15,7 @@ export default function Contattaci() {
   return (
     <div className="flex flex-col min-h-screen bg-muted/20">
       <SEOHead 
-        title="Contattaci | Marson Immobiliare" 
+        title="Contatti Marson Immobiliare: agenzia immobiliare a Legnano" 
         description="Siamo a tua disposizione per qualsiasi informazione. Compila il modulo o utilizza i nostri recapiti diretti."
         canonical="/contattaci"
       />

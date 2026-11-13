@@ -78,8 +78,8 @@ export default function Affitto() {
   return (
     <div className="flex flex-col min-h-screen bg-muted/20">
       <SEOHead 
-        title="Immobili in Affitto | Marson Immobiliare" 
-        description="Trova la soluzione in affitto più adatta alle tue esigenze, con la sicurezza di un'agenzia che ti tutela."
+        title="Case in affitto a Legnano e dintorni | Marson Immobiliare" 
+        description="Appartamenti e case in affitto nel Legnanese, con contratti seguiti da un'agenzia che tutela proprietari e inquilini. 6 sedi Marson Immobiliare."
         canonical="/affitto"
       />
       {/* Hero */}

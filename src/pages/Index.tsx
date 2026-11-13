@@ -22,8 +22,8 @@ export default function Index() {
   return (
     <div className="flex flex-col min-h-screen">
       <SEOHead 
-        title="Marson Immobiliare — Agenzia Immobiliare" 
-        description="Marson Immobiliare: esperienza, territorio, risultati. La tua agenzia di fiducia per compravendita e locazione di immobili residenziali e commerciali."
+        title="Agenzia immobiliare a Legnano e nel Legnanese | Marson Immobiliare" 
+        description="Agenzia immobiliare con 6 sedi tra Legnano, Canegrate, San Giorgio su Legnano, San Vittore Olona, Busto Garolfo e Villa Cortese. Vendita, acquisto e affitto casa da oltre 40 anni."
         canonical="/"
         schemaJson={JSON.stringify({
           "@context": "https://schema.org",

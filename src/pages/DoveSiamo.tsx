@@ -10,8 +10,8 @@ export default function DoveSiamo() {
   return (
     <div className="flex flex-col min-h-screen bg-muted/20">
       <SEOHead 
-        title="Dove Siamo | Marson Immobiliare" 
-        description="Vieni a trovarci nelle nostre sedi. Un team di professionisti è pronto ad accoglierti per ogni tua esigenza immobiliare."
+        title="Le 6 sedi Marson Immobiliare nel Legnanese: indirizzi e orari" 
+        description="Indirizzi, telefoni e orari delle sedi di Legnano, Canegrate, San Giorgio su Legnano, San Vittore Olona, Busto Garolfo e Villa Cortese."
         canonical="/dove-siamo"
         schemaJson={JSON.stringify({
           "@context": "https://schema.org",

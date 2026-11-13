@@ -12,7 +12,7 @@ export default function VendiImmobile() {
   return (
     <div className="flex flex-col min-h-screen bg-muted/20">
       <SEOHead 
-        title="Vendi o Affitta il tuo Immobile | Marson Immobiliare" 
+        title="Vendi o affitta casa nel Legnanese: valutazione gratuita | Marson" 
         description="Vendi o affitta il tuo immobile alle migliori condizioni di mercato. Sfrutta la forza di un'agenzia con 6 sedi e oltre 40 anni di esperienza sul territorio."
         canonical="/vendi-immobile"
       />

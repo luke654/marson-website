@@ -7,7 +7,7 @@ export default function ChiSiamo() {
   return (
     <div className="flex flex-col min-h-screen bg-muted/20">
       <SEOHead 
-        title="Chi Siamo | Marson Immobiliare" 
+        title="Chi siamo: agenzia immobiliare nel Legnanese dal 1986 | Marson" 
         description="Dal 1986 Marson Immobiliare è il punto di riferimento per chi cerca, vende o affitta casa nel legnanese e dintorni."
         canonical="/chi-siamo"
       />

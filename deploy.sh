@@ -15,11 +15,12 @@ if [ "${1:-}" = "--https" ]; then
 fi
 
 echo "→ Build"
-(cd "$SRC" && npm run build)
+(cd "$SRC" && npm run build:seo)
 
 echo "→ Copio il sito in $HOST:$DEST"
 ssh "$HOST" "sudo mkdir -p $DEST && sudo chown cristi:cristi $DEST"
-rsync -az --delete "$SRC/dist/" "$HOST:$DEST/"
+# niente --delete: sul server ci sono foto dei venduti caricate a parte
+rsync -az "$SRC/dist/" "$HOST:$DEST/"
 
 if ssh "$HOST" "test -f /etc/apache2/sites-enabled/marson.it.conf"; then
   echo "✓ Virtual host già presente: sito aggiornato."
