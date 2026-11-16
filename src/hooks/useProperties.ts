@@ -57,9 +57,19 @@ export function useProperties() {
           const id = item["@attributes"]?.IDImmobile || item.id || item.codice;
           if (!id) return null;
           
+          // Getrix: "Descrizione" è un oggetto se c'è una sola lingua, una lista se ce ne sono più (IT, EN, RU...)
+          const descrizioni = item.Descrizioni?.Descrizione;
+          const descrizioneList = Array.isArray(descrizioni) ? descrizioni : descrizioni ? [descrizioni] : [];
+          const descrizioneIT =
+            descrizioneList.find((d: any) => d?.["@attributes"]?.Lingua === "IT" && getText(d?.Testo)) ||
+            descrizioneList.find((d: any) => getText(d?.Testo)) ||
+            descrizioneList[0];
+          const titoloIT = getText(descrizioneIT?.Titolo);
+          const testoIT = getText(descrizioneIT?.Testo);
+
           let title = "Immobile";
-          if (item.Descrizioni?.Descrizione?.Titolo?.["#text"]) {
-             title = item.Descrizioni.Descrizione.Titolo["#text"];
+          if (typeof titoloIT === "string" && titoloIT.trim()) {
+             title = titoloIT;
           } else if (getText(item.Titolo)) {
              title = getText(item.Titolo);
           } else if (getText(item.Tipologia) && getText(item.Comune)) {
@@ -87,8 +97,8 @@ export function useProperties() {
           if (item.Residenziale?.NrBagni) bathrooms = getText(item.Residenziale.NrBagni);
           
           let description = item.descrizione || item.description || "";
-          if (item.Descrizioni?.Descrizione?.Testo?.["#text"]) {
-            description = item.Descrizioni.Descrizione.Testo["#text"];
+          if (typeof testoIT === "string" && testoIT.trim()) {
+            description = testoIT;
           }
           
           if (!description && location.toLowerCase().includes("busto garolfo") && String(priceRaw).includes("50000")) {
